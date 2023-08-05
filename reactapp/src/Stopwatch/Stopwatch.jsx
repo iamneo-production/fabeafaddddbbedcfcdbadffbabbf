@@ -21,6 +21,7 @@ export default function StopWatch() {
             setSeconds(0)
         }
     }
+    console.log(MilliSeconds);
     function pauseTimer() {
         setButtonState(prev => {
             return {
@@ -91,5 +92,5 @@ export default function StopWatch() {
                 <button disabled={buttonState.disabledReset} onClick={() => { !buttonState.disabledReset && resetTimer() }} data-testid="reset" style={{ width: '120px', padding: '12px', fontWeight: 'bold', border: '3px solid gray', borderRadius: '4px', cursor: !buttonState.disabledReset && 'pointer' }}>Reset</button>
             </div>
         </div>
-    </div>
+    </div>
 }
