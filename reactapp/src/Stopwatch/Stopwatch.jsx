@@ -10,6 +10,7 @@ export default function StopWatch() {
         showPause: false,
         showResume: false
     })
+
     function timer() {
         setMilliSeconds(prev => prev + 1)
         if (MilliSeconds === 60) {
@@ -21,6 +22,7 @@ export default function StopWatch() {
             setSeconds(0)
         }
     }
+
     console.log(MilliSeconds);
     function pauseTimer() {
         setButtonState(prev => {
@@ -32,6 +34,7 @@ export default function StopWatch() {
         })
         clearInterval(timerRef.current)
     }
+
     function resetTimer() {
         clearInterval(timerRef.current)
         setButtonState({
@@ -44,6 +47,7 @@ export default function StopWatch() {
         setMilliSeconds(0);
         setMinutes(0);
     }
+
     function resumeTimer() {
         setButtonState(prev => {
             return {
@@ -54,6 +58,7 @@ export default function StopWatch() {
         })
         timerRef.current = setInterval(timer, 1000)
     }
+
     function startTimer() {
         setButtonState(prev => {
             return {
@@ -71,6 +76,7 @@ export default function StopWatch() {
             timerRef.current = undefined;
         }
     }, [])
+    
     return <div style={{ backgroundColor: '#54bde1', height: '550px', width: '45%', borderRadius: '35px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <div style={{ backgroundColor: 'white', height: '75%', width: '99%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '30px', justifyContent: 'center' }}>
             <p style={{ fontWeight: 'bold', fontSize: '40px', }}>React Stopwatch</p>
